@@ -17,11 +17,13 @@
   <body>
     session id? <%= session[:user_id] %>
     <% if session[:user_id] != nil %> 
-  <%= link_to 'New Post', new_user_post_path(current_user) %>
+ <!--  <#%= link_to 'New Post', new_user_post_path(current_user) %> -->
+  <%= link_to 'New Post', new_post_path %>
   <% end %> 
   <%= link_to 'Sign in', sign_in_path %>
   <%= link_to "Sign up", new_user_path %>
   <%= link_to 'Sign out', sign_out_path, method: :delete %>
+   <%= link_to "Sign in with Facebook", "/auth/facebook" %>
 
 
 

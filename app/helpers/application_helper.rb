@@ -13,5 +13,13 @@ module ApplicationHelper
     end
   end
 
+  def signin(user)
+    session[:user_id] = user.id
+  end 
+
+
+  def signed_in?
+    !current_user.nil?
+  end
   
 end
