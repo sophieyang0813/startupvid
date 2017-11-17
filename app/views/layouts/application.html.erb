@@ -6,12 +6,34 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- jquery library-ajax; see bitly -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <!-- Bootstrap: Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
+
   <body>
+    session id? <%= session[:user_id] %>
+    <% if session[:user_id] != nil %> 
+  <%= link_to 'New Post', new_user_post_path(current_user) %>
+  <% end %> 
+  <%= link_to 'Sign in', sign_in_path %>
+  <%= link_to "Sign up", new_user_path %>
+  <%= link_to 'Sign out', sign_out_path, method: :delete %>
+
+
+
+   <% flash.each do |key, value| -%>
+    <div id="flash_<%= key %>" class="<%= flash_class(key)%>">
+      <%=h value %>
+    </div>
+   <% end %>
+
     <%= yield %>
 
-    <h1> application html: </h1>
-    <h3>landing page includes randomize youtube video writing your own startup journey compiler; what I read for the industry; on right side; </h3>
+  <!--   <h1> application html: </h1>
+    <h3>landing page includes randomize youtube video writing your own startup journey compiler; what I read for the industry; on right side; </h3> -->
   </body>
 </html>

@@ -6,6 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+
 gem 'bcrypt', '~> 3.1.11'
 gem 'figaro'
 
