@@ -1,5 +1,5 @@
 
-
+<!-- all user posts search through -->
 <div>
   <%= form_tag(posts_search_path, method: :get, remote: true) do %>
   <%= text_field_tag :highlight, params[:highlight], placeholder: 'find!' %>
@@ -31,10 +31,8 @@
         <tbody>
           <% @posts.each do |post| %>
             <tr>
+              <td><%= link_to post.user.first_name, user_path(post.user.id) %></td>
               <td><%= post.highlight %></td>
-              <td><%= link_to 'Show', post %></td>
-              <td><%= link_to 'Edit', edit_post_path(post) %></td>
-              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -43,6 +41,7 @@
   </div>
 
   <div class = 'col-md-4'>
+
       <%= @a[0].title %><br>
       <%= @a[0].embed_html.html_safe %>
 
@@ -51,5 +50,8 @@
        <input type="hidden" name ="question_id" >
       </form>
   </div>
+
+
+
 
 <!-- <#%= link_to 'New Post', new_post_path %> -->

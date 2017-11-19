@@ -9,9 +9,11 @@ $(document).ready(function(){
 
   $('.remove').remove();
     <% @posts.each do |post| %>
-    $('.append').append("<%= post.highlight %>");
-    <% end %>
+    $('.append').append("<%= post.highlight %><br>");
+    $('.append').append("<%= post.user.first_name %>");
+    // $('.append').append("<%= link_to 'Show', post_path(post) %>");
 
+    <% end %>
 });
 
 

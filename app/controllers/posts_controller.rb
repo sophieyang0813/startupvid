@@ -22,14 +22,14 @@ class PostsController < ApplicationController
       format.html
     end
 
-    
+
  end 
 
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @posts = Post.search(params[:highlight])
+    
     # here you write yt code ?
     # videos = Yt::Collections::Videos.new videos.where(order: 'viewCount').first.title
 
@@ -95,6 +95,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:highlight)
+      params.require(:post).permit(:highlight, :content)
     end
 end
