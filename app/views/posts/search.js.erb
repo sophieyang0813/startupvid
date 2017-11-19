@@ -1,0 +1,18 @@
+
+console.log("hi");
+
+// $(".container1").remove 
+
+
+
+$(document).ready(function(){
+
+  $('.remove').remove();
+    <% @posts.each do |post| %>
+    $('.append').append("<%= post.highlight %>");
+    <% end %>
+
+});
+
+
+

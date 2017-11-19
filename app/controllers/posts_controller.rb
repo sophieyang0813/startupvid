@@ -5,18 +5,31 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-
-
     @channel = Yt::Channel.new id: 'UCwB3HiWejAkml1UZ0Qo2bFg'
+    @a = @channel.videos.take(5)
+    @number = 1
+    @video = @a[@number]
+    @video.to_json
+    # @video = Yt::Video.new id:  '1R5dKwvtjlg'
+  end
+
+ 
+  def search
+    # byebug
+    @posts = Post.search(params[:highlight])
+    respond_to do |format|
+      format.js
+      format.html
+    end
 
     
+ end 
 
-  end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-
+    @posts = Post.search(params[:highlight])
     # here you write yt code ?
     # videos = Yt::Collections::Videos.new videos.where(order: 'viewCount').first.title
 

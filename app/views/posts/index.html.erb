@@ -1,27 +1,55 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Highlight</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div>
+  <%= form_tag(posts_search_path, method: :get, remote: true) do %>
+  <%= text_field_tag :highlight, params[:highlight], placeholder: 'find!' %>
+  <%= submit_tag "Search"  %>
+  <% end %> 
+</div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.highlight %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+  <div class = "col-md-8">
+    <div class = append>
+    </div>
+    <div class = remove>
+      <%= @video %><br>
+      <%= @a[0].title %><br>
+      <%= @video.channel_id %><br>
+      <%= @video.embed_html %><br><hr>
+      <%= @channel %><br>
+      <%= @a[0].title %><br>
+      <%= @channel.title %> : <%= @channel.description %><br>
+      <%= @channel.published_at %><br>
+      <%= @channel.thumbnail_url %><br><br><hr> 
+      <table>
+        <thead>
+          <tr>
+            <th>Highlight</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td><%= post.highlight %></td>
+              <td><%= link_to 'Show', post %></td>
+              <td><%= link_to 'Edit', edit_post_path(post) %></td>
+              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table><br>
+    </div>
+  </div>
+
+  <div class = 'col-md-4'>
+      <%= @a[0].title %><br>
+      <%= @a[0].embed_html.html_safe %>
+
+      <form method="get" action="posts#index" class="q_upvote_up">
+       <input type="submit" value="upvote" class ="newQvtBtn Btn">
+       <input type="hidden" name ="question_id" >
+      </form>
+  </div>
 
 <!-- <#%= link_to 'New Post', new_post_path %> -->

@@ -13,3 +13,41 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+// function log(){
+//   var form = $('.ajax');
+//   form.on('submit', function(formSubmissionEvent){
+//     formSubmissionEvent.preventDefault();
+//     console.log("prevented default action!")
+
+//     var form = $(formSubmissionEvent.currentTarget)
+
+//     $.ajax({
+//       url: form.attr('action'),
+//       method: form.attr('method'),
+//       data: form.serialize(),
+//       dataType: 'JSON'
+//       success: function(response){
+//         if (response) {
+//           form.append(
+//             "<button>"+ response + "</button>");
+//           }
+//          }
+//       })
+//     })
+// };
+
+
+
+
+function log(){
+  var btn = $('#ajax');
+  btn.click(function(){
+    $("#ajax").append("hehe");
+  });
+};
+
+document.addEventListener("DOMContentLoaded", log);
+
+

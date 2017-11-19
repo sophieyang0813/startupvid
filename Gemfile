@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'pg_search'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 
