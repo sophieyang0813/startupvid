@@ -5,41 +5,60 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @channel = Yt::Channel.new id: 'UCwB3HiWejAkml1UZ0Qo2bFg'
-    @a = @channel.videos.take(5)
-    @number = 1
-    @video = @a[@number]
-    @video.to_json
-    # @video = Yt::Video.new id:  '1R5dKwvtjlg'
+    @tnum = rand(0..2)
+    @techVid = Post.playTvid(@tnum.to_i)
+    @tech_title = @techVid.title
+    @tech_id = @techVid.id
+    @tech_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+
+    @pnum = rand(3..4)
+    @pVid = Post.playPvid(@pnum.to_i)
+    @p_title = @pVid.title
+    @p_id = @pVid.id
+    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    respond_to do |format|
+      format.js
+      format.html
+    end 
+
   end
 
  
   def search
-    # byebug
     @posts = Post.search(params[:highlight])
     respond_to do |format|
-      format.js
-      format.html
+    format.js
+    format.html
     end
-
-
- end 
+  end 
 
 
   # GET /posts/1
   # GET /posts/1.json
   def show
     
-    # here you write yt code ?
-    # videos = Yt::Collections::Videos.new videos.where(order: 'viewCount').first.title
-
-
-
   end
 
   # GET /posts/new
   def new
     @post = Post.new
+
+    # vid
+    @tnum = rand(0..2)
+    @techVid = Post.playTvid(@tnum.to_i)
+    @tech_title = @techVid.title
+    @tech_id = @techVid.id
+    @tech_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+
+    @pnum = rand(3..4)
+    @pVid = Post.playPvid(@pnum.to_i)
+    @p_title = @pVid.title
+    @p_id = @pVid.id
+    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    respond_to do |format|
+      format.js
+      format.html
+    end 
   end
 
   # GET /posts/1/edit

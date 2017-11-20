@@ -1,41 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<div class = "col-md-8">
-<h3><%= @user.first_name %>'s Posts</h3>
-  <% @posts.each do |post| %>
-  <strong><%= link_to 'highlight', post_path(post) %></strong>
-  <%= post.highlight %><br> 
-  <%= link_to 'Edit', edit_post_path(post) if current_user == @user %>
-  <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if current_user == @user %><br>
-  <% end %>  
+
+<div class = container >
+  <div class = "col-md-8">
+  <h3><%= @user.first_name %>'s Posts</h3>
+    <% @posts.each do |post| %>
+    <strong><%= link_to 'highlight', post_path(post) %></strong>
+    <%= post.highlight %><br> 
+    <%= link_to 'Edit', edit_post_path(post) if current_user == @user %>
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if current_user == @user %><br>
+    <% end %>  
+  </div>
+
+
+  <div class = "col-md-4">
+    <h3><%= @user.first_name %>'s profile</h3>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong>Password</strong>
+      <%= @user.password %>
+    </p>
+
+    <p>
+      <strong>Last name:</strong>
+      <%= @user.last_name %>
+    </p>
+
+    <p>
+      <strong>First name:</strong>
+      <%= @user.first_name %>
+    </p>
+
+     <td><%= link_to 'Edit', edit_user_path(@user) %></td>
+  </div>
 </div>
 
 
 
-
-
-<div class = "col-md-4">
-  <h3><%= @user.first_name %>'s profile</h3>
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-
-  <p>
-    <strong>Password</strong>
-    <%= @user.password %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= @user.last_name %>
-  </p>
-
-  <p>
-    <strong>First name:</strong>
-    <%= @user.first_name %>
-  </p>
+<div class = 'container'>
+  <h3>to contact list</h3>
+  <!-- <h3> 100 day challenge </h3>
+  <h3>monthly goals (backlog) </h3>
+  this week
+  <h3>trello -weekly goals (new, in progress, complete</h3>  -->
+  <p></p>
+  
 </div>
-
-
-

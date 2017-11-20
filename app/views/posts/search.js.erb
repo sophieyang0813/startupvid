@@ -7,12 +7,16 @@ console.log("hi");
 
 $(document).ready(function(){
 
-  $('.remove').remove();
+  $('.table').remove();
     <% @posts.each do |post| %>
-    $('.append').append("<%= post.highlight %><br>");
-    $('.append').append("<%= post.user.first_name %>");
+    // $('.appendtbl').append("<%= post.user.first_name %>\
+    //   <%= post.highlight %><br>");
+    $('.appendtbl').append("<table class = 'table' >\
+      <td><%= j post.user.first_name %></td>\
+      <td><%= j post.highlight %></td>\
+          </tr>\
+      </table>");
     // $('.append').append("<%= link_to 'Show', post_path(post) %>");
-
     <% end %>
 });
 

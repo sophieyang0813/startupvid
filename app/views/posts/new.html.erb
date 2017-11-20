@@ -1,5 +1,37 @@
-<h1>New Post</h1>
 
-<%= render 'form', post: @post %>
+
+
+<div>
+  <div class = 'col-md-6'>
+    <h2>Noteworthy</h2>
+  <%= render 'form', post: @post %>
+  </div>
+  <div class = 'col-md-6'>
+   <section id="connected">
+    <h2> Sortable Lists</h2>
+    <ul class="connected list">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+    <ul class="connected list no2">
+      <li class="highlight">Item 1</li>
+      <li class="highlight">Item 2</li>
+      <li class="highlight">Item 3</li>
+      <li class="highlight">Item 4</li>
+      <li class="highlight">Item 5</li>
+      <li class="highlight">Item 6</li>
+    </ul>
+  </section>
+  </div>
+</div>
+
+
+<hr>
+<%= render 'vid', post: @post %>
+
 
 <%= link_to 'all posts', posts_path %>

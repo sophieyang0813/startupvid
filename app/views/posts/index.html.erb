@@ -8,20 +8,12 @@
 </div>
 
 
-  <div class = "col-md-8">
-    <div class = append>
-    </div>
-    <div class = remove>
-      <%= @video %><br>
-      <%= @a[0].title %><br>
-      <%= @video.channel_id %><br>
-      <%= @video.embed_html %><br><hr>
-      <%= @channel %><br>
-      <%= @a[0].title %><br>
-      <%= @channel.title %> : <%= @channel.description %><br>
-      <%= @channel.published_at %><br>
-      <%= @channel.thumbnail_url %><br><br><hr> 
-      <table>
+
+
+
+<div class = "col-md-12">
+  <div class = 'appendtbl'>
+      <table class ='table'>
         <thead>
           <tr>
             <th>Highlight</th>
@@ -33,24 +25,27 @@
             <tr>
               <td><%= link_to post.user.first_name, user_path(post.user.id) %></td>
               <td><%= post.highlight %></td>
+              <td><%= post.created_at.to_date %></td>
+              <td><button>complie</button></td>
+              <!-- if compiled, then save to my page  -->
             </tr>
           <% end %>
         </tbody>
       </table><br>
-    </div>
   </div>
+</div>
 
-  <div class = 'col-md-4'>
 
-      <%= @a[0].title %><br>
-      <%= @a[0].embed_html.html_safe %>
+<%= render 'vid', post: @post %>
 
-      <form method="get" action="posts#index" class="q_upvote_up">
-       <input type="submit" value="upvote" class ="newQvtBtn Btn">
-       <input type="hidden" name ="question_id" >
-      </form>
-  </div>
 
+<!-- second news column -->
+
+
+<div>
+  
+
+</div>
 
 
 

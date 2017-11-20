@@ -1,0 +1,39 @@
+
+
+
+<div class = "col-md-4">
+    <div class = 'appendvid1'>
+       <h2>Tech Ed & News </h2>
+       <p>TechinAsia | TechInsider | GoogleDeveloper | ML, AI, Blockchain</p>
+      <div class = 'video1' > 
+        <strong><%=  @tech_title %></strong><br>
+        <%= @tech_html.html_safe %><br> 
+      </div>
+      <%= button_to "Next Tech", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
+    </div>
+</div>
+
+<div class = "col-md-4">
+    <div class = 'appendvid2'>
+      <h2> Tech Conferences </h2>
+      <p>Bloomberg| MarketWatch </p>
+      <div class = 'video2' > 
+        <strong><%=  @p_title %></strong><br>
+        <%= @p_html.html_safe %><br> 
+      </div>
+      <%= button_to "Next policy", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
+    </div>
+</div>
+
+
+<div class = "col-md-4">
+    <div class = 'appendvid3'>
+      <h2> Startup  </h2>
+      <p> Machine Learning| Block Chain </p>
+      <div class = 'video3' > 
+        <strong><%=  @tech_title %></strong><br>
+        <%= @tech_html.html_safe %><br> 
+      </div>
+      <%= button_to "Next Videooo", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
+    </div>
+</div>

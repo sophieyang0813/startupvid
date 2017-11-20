@@ -1,0 +1,24 @@
+console.log("hi");
+
+
+$('.video1').remove();
+$('.appendvid1').append("<div class = 'video1' >\
+  <strong><%= j @tech_title %></strong><br>\
+      <%= j @tech_html.html_safe %><br> \
+       </div> ");
+
+
+
+$('.video2').remove();
+$('.appendvid2').append("<div class = 'video2' >\
+  <strong><%= j  @p_title %></strong><br>\
+      <%= j @p_html.html_safe %><br> \
+       </div> ");
+
+
+$('.video3').remove();
+$('.appendvid3').append("<div class = 'video3' >\
+  <strong><%= j @p_title %></strong><br>\
+      <%= j @p_html.html_safe %><br> \
+       <p><%= j @rvid_dscrpt %></p>\
+       </div> ");
