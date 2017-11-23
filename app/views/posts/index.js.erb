@@ -1,0 +1,72 @@
+
+
+
+$(document).ready(function(){
+  // console.log("hi");
+  var one = document.getElementById("one");
+  var two = document.getElementById("two");
+  var three = document.getElementById("three");
+  // debugger 
+
+  // var buttons = document.querySelectorAll(".video-button");
+
+  // button.each do |button| 
+
+
+  // buttons.forEach(button => button.addEventListener("click", changeVideo);
+
+  //   function changeVideo() {
+  //     $(this).parent.
+  //   }
+
+
+
+  one.addEventListener("click",function(){
+    $('.video1').remove();
+    $('.appendvid1').append("<div class = 'video1' >\
+      <strong><%= j @tech_title %></strong><br>\
+          <%= j @tech_html.html_safe %><br> \
+           </div> ");
+  });
+
+  two.addEventListener("click",function(){
+    $('.video2').remove();
+    $('.appendvid2').append("<div class = 'video2' >\
+      <strong><%= j  @p_title %></strong><br>\
+        <%= j @p_html.html_safe %><br> \
+         </div> ");
+  });
+
+  three.addEventListener("click",function(){
+    $('.video3').remove();
+    $('.appendvid3').append("<div class = 'video3' >\
+      <strong><%= j @s_title %></strong><br>\
+          <%= j @s_html.html_safe %><br> \
+           </div> ");
+  });
+
+  //ABOVE CODE WORKS
+
+  // if (one.click == true) { 
+  // $('.video1').remove();
+  // $('.appendvid1').append("<div class = 'video1' >\
+  //   <strong><%= j @tech_title %></strong><br>\
+  //       <%= j @tech_html.html_safe %><br> \
+  //        </div> ");
+  // } else if (two.click == true) {
+  //   // console.log("hello");
+  // // debugger  
+  // $('.video2').remove();
+  // $('.appendvid2').append("<div class = 'video2' >\
+  //   <strong><%= j  @p_title %></strong><br>\
+  //       <%= j @p_html.html_safe %><br> \
+  //        </div> ");
+  // } else if (three.click == true) { 
+  // $('.video3').remove();
+  // $('.appendvid3').append("<div class = 'video3' >\
+  //   <strong><%= j @s_title %></strong><br>\
+  //       <%= j @s_html.html_safe %><br> \
+  //        </div> ");
+  // };
+});
+

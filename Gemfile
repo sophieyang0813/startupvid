@@ -6,6 +6,19 @@ git_source(:github) do |repo_name|
 end
 
 
+gem 'sidekiq'
+#background job
+
+gem 'pg_search'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+
+gem 'bcrypt', '~> 3.1.11'
+gem 'figaro'
+
+gem 'yt', '~> 0.28.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
@@ -39,6 +52,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do

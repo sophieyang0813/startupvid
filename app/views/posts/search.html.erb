@@ -1,0 +1,8 @@
+<h1>Search result</h1>
+  <div class = 'col-md-12'>
+
+    <% @posts.each do |post| %>
+     <%= post.highlight %> 
+    <% end %> 
+
+  </div>

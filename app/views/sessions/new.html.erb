@@ -1,0 +1,29 @@
+<br><br><br>
+<!-- <h1 class = "container textcenter">Log in</h1>
+ -->
+
+<div class = "container textcenter">
+  <h3 class = "barcodefont" style = "font-size: xx-large" >Noteworthy Log in</h3>
+  <p>A place to share tech news and better understand startup world</p>
+</div>
+
+
+<div class = "box container textcenter">
+  <%= form_for :session, url: session_path, :html => {:id => 'session'} do |form| %>
+    <div>
+      <br>
+      <% form.label :email %>
+      <%= form.text_field :email, type: 'email', placeholder: 'email' %>
+    </div>
+
+     <div>
+      <% form.label :password %>
+      <%= form.password_field :password, type: 'password', placeholder: 'password' %>
+    </div>
+
+    <div>
+      <%= form.submit "log in"%> 
+      <br><br>
+    </div>
+  <% end %> 
+</div>

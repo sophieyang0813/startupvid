@@ -1,0 +1,24 @@
+<%= form_for @post, url: { action: "create" } do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% form.label :highlight %>
+    <%= form.text_area :highlight, id: :post_highlight, placeholder:"Share highlights (i.e. key words, quotes) ", class: "box highlightarea" %><br>
+    <% form.label :content %>
+    <%= form.text_area :content, id: :post_content, placeholder: "share content and source" , class: "box contentarea" %><br>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "box" %>
+  </div>
+<% end %>

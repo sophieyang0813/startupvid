@@ -1,0 +1,29 @@
+
+
+
+<div>
+  <div class = 'col-md-6 pull-right'>
+    <h3 class = 'cfont'><strong>Noteworthy</strong></h3>
+  <%= render 'form', post: @post %>
+  </div>
+  <div class = 'col-md-6 pull-right'>
+    <h3><strong><%= current_user.first_name %>'s compiled articles</strong></h3>
+    <% @user_posts.each do |post| %>
+    <div class = 'container' style = "width: auto;">
+      <%= post.created_at.to_date %><br>   
+      <%= post.highlight %><br> 
+      <strong><%= link_to 'details?', post_path(post) %></strong>
+    </div>
+    <br>
+    <% end %>  
+  </div>
+</div>
+
+
+
+
+<hr>
+<div class = 'col-md-12'>
+<%= render 'vid', post: @post %>
+</div>
+
