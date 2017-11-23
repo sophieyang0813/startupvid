@@ -1,45 +1,85 @@
-
+<div id="page-index">
 <!-- all user posts search through -->
+<!-- facebook buttons initialize-->
+
+<br><br><br><br><br><br><br>
+<div class = container>
+  <div class = "col-md-2"></div>
+     <div id="custom-search-input col-md-8">
+           <div class = "input group col-md-11">
+        <%= form_tag(posts_search_path, method: :get, remote: true) do %>
+        <%= text_field_tag :highlight, params[:highlight], placeholder: 'find!' ,class: "form-control input-lg inline" %>
+           </div>
+            <div class = "input group col-md-1">
+          <span class="input-group-btn inline">
+            <button class="btn btn-info btn-lg inline" type="button">
+             <!--  <#%= submit_tag '' %> -->
+              <i class="glyphicon glyphicon-search inline"></i>
+            </button>
+         </span>
+        <% end %> 
+          </div>
+      </div>
+      <div class = "col-md-2"></div>
+</div>
+
+
 <div>
-  <%= form_tag(posts_search_path, method: :get, remote: true) do %>
-  <%= text_field_tag :highlight, params[:highlight], placeholder: 'find!' %>
-  <%= submit_tag "Search"  %>
-  <% end %> 
+  <div class = "col-md-2"></div>
+  <div class = "col-md-8">
+    <div class = 'appendtbl'>
+        <table class ='table'>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= link_to post.user.first_name, user_path(post.user.id) %></td>
+                <td><%= post.highlight %></td>
+                <td><%= post.created_at.to_date %></td>
+                <td><button class= "hi" onclick="clickButton('<%= post.highlight %>')">Share on Facebook</button></td>
+                <!-- if compiled, then save to my page  -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table><br>
+    </div>
+   </div>
+   <div class = "col-md-2"></div>
 </div>
 
 
+<script type="text/javascript" > 
+    window.fbAsyncInit = function() {
+    FB.init({
+      appId            : <%= ENV['FACEBOOK_APP_KEY'] %>,
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11'
+    });
+  };
 
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=<%= ENV['FACEBOOK_APP_KEY'] %>";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk')); 
+</script>
 
+<script>
+ var clickButton = function(message){
+  FB.login(function(){
+  FB.api('/me/feed', 'post', {message: message });
+  }, {scope: 'publish_actions'});
+}
+</script>
 
-<div class = "col-md-12">
-  <div class = 'appendtbl'>
-      <table class ='table'>
-        <thead>
-          <tr>
-            <th>Highlight</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td><%= link_to post.user.first_name, user_path(post.user.id) %></td>
-              <td><%= post.highlight %></td>
-              <td><%= post.created_at.to_date %></td>
-              <td><button>complie</button></td>
-              <!-- if compiled, then save to my page  -->
-            </tr>
-          <% end %>
-        </tbody>
-      </table><br>
-  </div>
-</div>
 
 
 <%= render 'vid', post: @post %>
 
 
-<!-- second news column -->
+
 
 
 <div>
@@ -47,6 +87,89 @@
 
 </div>
 
+</div>
 
 
-<!-- <#%= link_to 'New Post', new_post_path %> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- old facebook attempts for future reference  -->
+
+<!-- <div class = "col-md-12">
+  <div id="shareBtn" class="btn btn-success clearfix">share fb documentation</div>
+  <div id="postBtn" class="btn btn-success clearfix">post hello world!</div>
+  <div id="eventBtn" class="btn btn-success clearfix">event console!</div>
+  <div id="attach"></div>
+  <div id="searchBtn" class="btn btn-success clearfix">tech event near me!</div>
+  <div id="attach2"></div>
+</div> -->
+<!-- 
+<script type="text/javascript">
+  
+   //1) share fb documentation  
+// document.getElementById('shareBtn').onclick = function() {
+//   FB.ui({
+//   method: 'share_open_graph',
+//   action_type: 'og.likes',
+//   action_properties: JSON.stringify({
+//     object:'https://developers.facebook.com/docs/',
+//     })
+//   }, function(response){
+//     // Debug response (optional)
+//     console.log(response);
+//   });
+// }
+
+
+
+
+
+// var button = function(message){
+//   console.log(message)
+// }
+// 3) event attempt 
+// document.getElementById('eventBtn').onclick = function() {
+//   FB.api(
+//   '/313035799169411/',
+//   'GET',
+//   {},
+//   function(response) {
+//      if (response) { 
+//         attach.append(response.description);
+//        console.log(response.description);
+//       }
+//     }
+//   );
+
+// }
+
+// 4) search attempt 
+
+// document.getElementById('searchBtn').onclick = function() {
+//   FB.api(
+//     '/search',
+//     'GET',
+//     {"q":"tech","type":"event","center":"37.76,-122.427","distance":"100"},
+//     function(response) {
+//        if (response) { 
+//         var i; 
+//         for (i = 0; i < 5 ; i++) {
+//         attach2.append(response.data[i].name);
+//        }
+//       }
+        
+//     }
+//   );
+// }
+</script> -->
+

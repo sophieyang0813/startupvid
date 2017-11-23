@@ -15,7 +15,14 @@ class PostsController < ApplicationController
     @pVid = Post.playPvid(@pnum.to_i)
     @p_title = @pVid.title
     @p_id = @pVid.id
-    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+
+    @snum = rand(5..6)
+    @s = Post.playSvid(@snum.to_i)
+    @s_title = @s.title
+    @s_id = @s.id
+    @s_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+
     respond_to do |format|
       format.js
       format.html
@@ -42,8 +49,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-
+    @user_posts = Post.where(user_id: current_user.id)
     # vid
+     @posts = Post.all
     @tnum = rand(0..2)
     @techVid = Post.playTvid(@tnum.to_i)
     @tech_title = @techVid.title
@@ -54,7 +62,13 @@ class PostsController < ApplicationController
     @pVid = Post.playPvid(@pnum.to_i)
     @p_title = @pVid.title
     @p_id = @pVid.id
-    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+
+    @snum = rand(5..6)
+    @s = Post.playSvid(@snum.to_i)
+    @s_title = @s.title
+    @s_id = @s.id
+    @s_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
     respond_to do |format|
       format.js
       format.html

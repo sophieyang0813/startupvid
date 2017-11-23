@@ -1,39 +1,46 @@
 
 
 
-<div class = "col-md-4">
-    <div class = 'appendvid1'>
-       <h2>Tech Ed & News </h2>
-       <p>TechinAsia | TechInsider | GoogleDeveloper | ML, AI, Blockchain</p>
-      <div class = 'video1' > 
-        <strong><%=  @tech_title %></strong><br>
-        <%= @tech_html.html_safe %><br> 
+<div>
+  <div class = "col-md-12"><br><br><br><br><br></div>
+  <div class = "col-md-4 vidbox textcenter">
+      <div class = 'appendvid1'>
+         <h3>Tech</h3>
+         <p>TechinAsia | TechInsider | GoogleDeveloper </p>
+        <div class = 'video1' > 
+          <strong><%=  @tech_title %></strong><br>
+          <%= @tech_html.html_safe %><br> 
+        </div>
       </div>
-      <%= button_to "Next Tech", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
-    </div>
+      <%= button_to "Tech Discover | Next Video", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" , :id => "one" , class: "box" } %>
+  </div>
+
+  <div class = "col-md-4 vidbox textcenter">
+      <div class = 'appendvid2'>
+        <h3> Market </h3>
+        <p>Bloomberg| MarketWatch </p>
+        <div class = 'video2' > 
+          <strong><%=  @p_title %></strong><br>
+          <%= @p_html.html_safe %><br> 
+        </div>
+      </div>
+      <%= button_to "Market Discover | Next Video", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" , :id => "two", class: "box"  } %>
+  </div>
+
+
+  <div class = "col-md-4 vidbox textcenter">
+      <div class = 'appendvid3'>
+        <h3>Startup</h3>
+        <p> Machine Learning| Block Chain </p>
+        <div class = 'video3' > 
+        <strong><%=  @s_title %></strong><br>
+          <%= @s_html.html_safe %><br> 
+        </div>
+        
+      </div>
+      <%= button_to "Startup Discover | Next Video", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json", :id => "three" , class: "box" } %>
+  </div>
+
 </div>
 
-<div class = "col-md-4">
-    <div class = 'appendvid2'>
-      <h2> Tech Conferences </h2>
-      <p>Bloomberg| MarketWatch </p>
-      <div class = 'video2' > 
-        <strong><%=  @p_title %></strong><br>
-        <%= @p_html.html_safe %><br> 
-      </div>
-      <%= button_to "Next policy", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
-    </div>
-</div>
-
-
-<div class = "col-md-4">
-    <div class = 'appendvid3'>
-      <h2> Startup  </h2>
-      <p> Machine Learning| Block Chain </p>
-      <div class = 'video3' > 
-        <strong><%=  @tech_title %></strong><br>
-        <%= @tech_html.html_safe %><br> 
-      </div>
-      <%= button_to "Next Videooo", { action: "index" }, method: :get, remote: true, form: { "data-type" => "json" } %>
-    </div>
-</div>
+<div class = "col-md-12"><br><br><br><br><hr></div>

@@ -1,0 +1,2 @@
+class Techvid < ApplicationRecord
+end

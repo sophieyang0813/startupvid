@@ -4,68 +4,63 @@ class Post < ApplicationRecord
   # pg_search_scope :highlight, -> (highlight) { where('highlight ILIKE ?')}
 
   #callback
-  before_save :capitalize_highlight
+  # before_save :capitalize_highlight
 
   def self.search(highlight)
     Post.where("highlight ILIKE ?", "%#{highlight}%")
   end 
 
   def self.playTvid(channelid)
-    @channelid = 'UCFzaq1XfqnCDbZdmPoI-1zw' if channelid == 0 #tech in asia
-    @channelid = 'UC_x5XG1OV2P6uZZ5FSM9Ttw' if channelid == 1  #tchInsdr 
-    @channelid = 'UC_x5XG1OV2P6uZZ5FSM9Ttw' if channelid == 2  #Ggledvlpr
-    @channel = Yt::Channel.new id: @channelid 
+    if channelid == 0 #teech in asia 
+      @tchannel = Yt::Channel.new id:  "UCFzaq1XfqnCDbZdmPoI-1zw"
 
-    @videoarr = @channel.videos
-    # @maxNum = @channel.videos.count
-    # @randNum= rand(0..@maxNum.to_i)
-    # @randVid = @videoarr.take(@randNum.to_i).last
-    @randNum= rand(0..15)
-    @randVid = @videoarr.take(@randNum.to_i).last
+      @vidarr1 = @tchannel.videos  #.where(q: '(C-SPAN)') 
+    elsif channelid == 1  # tech insider 
+      @tchannel = Yt::Channel.new id: "UC_x5XG1OV2P6uZZ5FSM9Ttw"
 
-  end 
-
-  # not work 
-  # def self.playPvid(chanlid)
-  #   if chanlid == 3 #bloomberg 
-  #     @pchannel = Yt::Channel.new id: 'UCIALMKvObZNtJ6AmdCLP7Lg'
-  #     @vidarr1 = @pchannel.videos
-  #       byebug
-  #     @randNum 
-  #     @pVid
-  #   elsif chanlid == 4  #marketwatch
-  #     @pchannel = Yt::Channel.new id: 'UCPaSu8qnjJhF1vkXVOGojBQ'
-  #     @vidrr1 = @pchannel.videos
-  #     @randNum
-  #     @pVid
-  #   end 
-  #     @randNum = rand(0..15)
-  #     @pVid = @vidarr1.take(@randNum.to_i).last
-  # end 
-
-
-    def self.playPvid(chanlid)
-    if chanlid == 3 #bloomberg
-      @plicychannel = Yt::Channel.new id: 'UCIALMKvObZNtJ6AmdCLP7Lg'
-      @vidarr1 = @plicychannel.videos  #.where(q: '(C-SPAN)') 
-      @randNum1 
-      @pVid
-    elsif chanlid == 4  #marketwatch
-      @plicychannel = Yt::Channel.new id: 'UCPaSu8qnjJhF1vkXVOGojBQ'
-      @vidrr1 = @plicychannel.videos
-      @randNum1
-      @pVid
+      @vidarr1 = @tchannel.videos
+   elsif channelid == 2  #Ggle dvelper 
+    @tchannel = Yt::Channel.new id:  "UC_x5XG1OV2P6uZZ5FSM9Ttw"
+    @vidarr1 = @tchannel.videos
     end 
-      @randNum1 = rand(0..15)
-      @pVid = @vidarr1.take(@randNum1.to_i).last
+      @randNum1 = rand(1..15)
+      @tVid = @vidarr1.take(@randNum1.to_i).last
   end 
+
+
+ def self.playPvid(chanlid)
+  if chanlid == 3 #bloomberg
+    @pchannel = Yt::Channel.new id: 'UCIALMKvObZNtJ6AmdCLP7Lg'
+    @vidarr2 = @pchannel.videos  #.where(q: '(C-SPAN)') 
+  elsif chanlid == 4  #marketwatch
+    @plicychannel = Yt::Channel.new id: 'UCPaSu8qnjJhF1vkXVOGojBQ'
+    @vidarr2 = @plicychannel.videos
+  end 
+    @randNum2 = rand(1..15)
+    @pVid = @vidarr2.take(@randNum2.to_i).last
+end 
+
+
+ def self.playSvid(chanlid)
+  if chanlid == 5 #y combinator 
+    @schannel = Yt::Channel.new id: 'UCcefcZRL2oaA_uBNeo5UOWg'
+    @vidarr3  = @schannel.videos
+
+  elsif chanlid == 6  #KPCB
+    @schannel = Yt::Channel.new id: 'UCkNsANayKfsdXFXHpBm8LQg'
+    @vidarr3 = @schannel.videos
+  end 
+    @vidrr3 = @schannel.videos
+    @randNum3 = rand(1..15)
+    @sVid = @vidarr3.take(@randNum3.to_i).last
+end 
 
 
 
 private 
-  def  capitalize_highlight
-  self.highlight = highlight.capitalize
-  end 
+  # def  capitalize_highlight
+  # self.highlight = highlight.capitalize
+  # end 
 
 
 

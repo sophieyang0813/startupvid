@@ -1,0 +1,157 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.barcodefont {
+  font-family: 'Libre Barcode 39 Text', cursive;
+}
+
+ul .a {
+  list-style-type: none; 
+}
+
+
+body {
+    // background: image-url("pier.jpg") no-repeat  center center fixed;
+    background: image-url("pier.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size:cover;
+    height : 100%;
+    overflow: auto;
+    min-width: 1400px !important;
+    // opacity: 0.6
+}
+
+
+.cfont {
+  font-family: 'Comfortaa', cursive;
+}
+
+.textcenter {
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+}
+
+
+// / new post area 
+
+
+
+.box {
+    font-size:30px;
+    opacity: 0.5;
+    border-radius: 10px;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+
+.vidbox {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.container {
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.highlightarea {
+    width: 689px;
+    height: 77px;
+    background: rgba(255, 255, 255, 0.4);
+}
+.contentarea {
+    width: 691px;
+    height: 471px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+
+
+p, ol, ul, td {
+ font-family: 'Comfortaa', cursive;
+  font-size: 20px;
+  line-height: 18px;
+}
+
+
+h2 {
+  font-family: 'Comfortaa', cursive;
+  text-align: left;
+  font-weight: bold;
+}
+
+ul li {
+  font-size: 20px;
+  list-style: square;
+}
+
+label {
+  display: block;
+}
+
+.inline {
+   display:inline;
+}
+
+.blue {
+   color: #1c94c4;
+}
+
+// search 
+
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}

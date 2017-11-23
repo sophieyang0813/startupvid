@@ -2,6 +2,106 @@
 
 <h1>Users</h1>
 
+
+<script type="text/javascript">  console.log('hi')</script>
+<script type="text/javascript" src="//connect.facebook.net/en_US/all.js#xfbml=1&appId=524131787935649"> 
+    window.fbAsyncInit = function() {
+    FB.init({
+      appId            : ENV['FACEBOOK_APP_KEY'],
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+      
+</script>
+
+
+<div class="page-header">
+  <h3>Share Dialog</h3>
+</div>
+
+<p>Click the button below to trigger a Share Dialog; this shares developer documentation inside script  </p>
+
+<div id="shareBtn" class="btn btn-success clearfix">share fb documentation</div>
+<div id="postBtn" class="btn btn-success clearfix">post hello world!</div>
+<div id="eventBtn" class="btn btn-success clearfix">event console!</div>
+<div id="attach"></div>
+<div id="searchBtn" class="btn btn-success clearfix">tech event near me!</div>
+<div id="attach2"></div>
+
+
+<script>
+  //1) share fb documentation  
+document.getElementById('shareBtn').onclick = function() {
+  FB.ui({
+  method: 'share_open_graph',
+  action_type: 'og.likes',
+  action_properties: JSON.stringify({
+    object:'https://developers.facebook.com/docs/',
+    })
+  }, function(response){
+    // Debug response (optional)
+    console.log(response);
+  });
+}
+
+// 2) post hello world 
+document.getElementById('postBtn').onclick = function() {
+  FB.login(function(){
+  FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+}, {scope: 'publish_actions'});
+}
+
+// 3) event attempt 
+document.getElementById('eventBtn').onclick = function() {
+  FB.api(
+  '/313035799169411/',
+  'GET',
+  {},
+  function(response) {
+     if (response) { 
+        attach.append(response.description);
+       console.log(response.description);
+      }
+    }
+  );
+
+}
+
+// 4) search attempt 
+
+document.getElementById('searchBtn').onclick = function() {
+  FB.api(
+    '/search',
+    'GET',
+    {"q":"tech","type":"event","center":"37.76,-122.427","distance":"100"},
+    function(response) {
+       if (response) { 
+        attach2.append(response.data[0].name, response.data[1].name);
+       console.log(response.data[0].name);
+      }
+        
+    }
+  );
+}
+</script>
+
+
+
+
+
+<hr>
+
+
 <table>
   <thead>
     <tr>
@@ -32,4 +132,4 @@
 
 <%= link_to 'New User', new_user_path %>
 <%= link_to 'all users', users_path %>
-<%= link_to 'my page', user_path(current_user) %>
+
