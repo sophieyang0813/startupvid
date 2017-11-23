@@ -9,19 +9,19 @@ class PostsController < ApplicationController
     @techVid = Post.playTvid(@tnum.to_i)
     @tech_title = @techVid.title
     @tech_id = @techVid.id
-    @tech_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @tech_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
 
     @pnum = rand(3..4)
     @pVid = Post.playPvid(@pnum.to_i)
     @p_title = @pVid.title
     @p_id = @pVid.id
-    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @p_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
 
     @snum = rand(5..6)
     @s = Post.playSvid(@snum.to_i)
     @s_title = @s.title
     @s_id = @s.id
-    @s_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @s_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
 
     respond_to do |format|
       format.js
@@ -56,19 +56,19 @@ class PostsController < ApplicationController
     @techVid = Post.playTvid(@tnum.to_i)
     @tech_title = @techVid.title
     @tech_id = @techVid.id
-    @tech_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @tech_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @tech_id + "?start=30&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
 
     @pnum = rand(3..4)
     @pVid = Post.playPvid(@pnum.to_i)
     @p_title = @pVid.title
     @p_id = @pVid.id
-    @p_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @p_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @p_id + "?start=10&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
 
     @snum = rand(5..6)
     @s = Post.playSvid(@snum.to_i)
     @s_title = @s.title
     @s_id = @s.id
-    @s_html = "<iframe width= 500 height= 380 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
+    @s_html = "<iframe width= 300 height= 240 src=//www.youtube.com/embed/" + @s_id + "?start=60&" + "autoplay=1&" + "frameborder=0 gesture=media allowfullscreen></iframe>"
     respond_to do |format|
       format.js
       format.html
