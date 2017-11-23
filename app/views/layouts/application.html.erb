@@ -77,11 +77,11 @@
    <!--  session id? <#%= session[:user_id] %> -->
 
 
-   <% flash.each do |key, value| -%>
-    <div id="flash_<%= key %>" class="<%= flash_class(key)%>">
-      <%=h value %>
+<!--    <#% flash.each do |key, value| -%>
+    <div id="flash_<#%= key %>" class="<#%= flash_class(key)%>">
+      <#%=h value %>
     </div>
-   <% end %>
+   <#% end %> -->
 
     <%= yield %>
 
