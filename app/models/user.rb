@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
-      byebug
     user = self.create!(
       first_name: auth_hash["info"]["name"].split[0],
       last_name: auth_hash["info"]["name"].split[1],
@@ -20,7 +19,6 @@ class User < ApplicationRecord
 
    # grab fb_token to access Facebook for user data
     def fb_token
-        byebug
       x = self.authentications.find_by(provider: 'facebook')
       return x.token unless x.nil?
     end
