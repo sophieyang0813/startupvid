@@ -1,22 +1,12 @@
-
-console.log("hi");
-
-// $(".container1").remove 
-
-
-
 $(document).ready(function(){
 
   $('.table').remove();
     <% @posts.each do |post| %>
-    // $('.appendtbl').append("<%= post.user.first_name %>\
-    //   <%= post.highlight %><br>");
     $('.appendtbl').append("<table class = 'table' >\
       <td><%= j post.user.first_name %></td>\
       <td><%= j post.highlight %></td>\
           </tr>\
       </table>");
-    // $('.append').append("<%= link_to 'Show', post_path(post) %>");
     <% end %>
 });
 
